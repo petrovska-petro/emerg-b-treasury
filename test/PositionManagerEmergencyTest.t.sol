@@ -20,8 +20,9 @@ contract PositionManagerEmergencyTest is BaseFixture {
         BORROW_OPERATIONS.withdrawColl(
             positionManagerCrEmergency.TREASURY_CDP_ID(), _collReduction, bytes32(0), bytes32(0)
         );
+        vm.stopPrank();
 
-        // _triggerEmergencyOps();
+        _triggerEmergencyOps();
     }
 
     function _triggerEmergencyOps() internal {
