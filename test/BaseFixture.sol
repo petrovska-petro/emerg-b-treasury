@@ -33,7 +33,7 @@ contract BaseFixture is Test {
         vm.startPrank(TREASURY);
         // @audit in production max uint256 is not a good practice, tbd
         COLLATERAL.approve(address(positionManagerCrEmergency), type(uint256).max);
-        // @note probably one off approval makes more sense?
+        // @audit probably one off approval makes more sense in prod
         BORROW_OPERATIONS.setPositionManagerApproval(
             address(positionManagerCrEmergency), IPositionManagers.PositionManagerApproval.OneTime
         );
